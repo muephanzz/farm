@@ -1,21 +1,126 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Hero Section Background and Text Styling */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url('images/hen1.jpg'); /* Initial image */
+  animation: backgroundSlideshow 20s infinite ease-in-out;
+  animation-delay: 2s; /* Delay to let text animation finish */
+}
+
+.hero-text {
+  animation: fadeInZoom 2s ease-out forwards;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
+}
+
+/* Keyframes for Background Slideshow */
+@keyframes backgroundSlideshow {
+  0% { background-image: url('images/hen1.jpg'); }
+  20% { background-image: url('images/cabbage1.jpg'); }
+  40% { background-image: url('images/cow1.jpg'); }
+  60% { background-image: url('images/kale1.jpeg'); }
+  80% { background-image: url('images/sheep1.jpg'); }
+  100% { background-image: url('images/hen6.jpg'); } /* Loop back to first image */
+}
+
+
+/* Keyframes for fade-in and zoom */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  right: 0; /* Align to the right */
+  bottom: 0; /* Extend to the bottom of the screen */
+  background-color: #333;
+  display: none;
+  padding: 1rem 0;
+  overflow-y: auto; /* Adds scrolling if content exceeds the screen height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu a {
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 20px;
+  border-bottom: 1px solid #444;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.mobile-menu a:hover {
+  background-color: #444;
+}
+
   nav ul {
     display: flex;
     justify-content: center;
@@ -30,24 +135,6 @@
     color: #fff;
     text-decoration: none;
     font-size: 18px;
-  }
-  
-  .hero {
-    background-image: url('farm-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    color: black;
-    text-align: center;
-    padding: 100px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 1.5rem;
   }
   
   #products {
@@ -103,24 +190,7 @@
       width: 100%;
     }
   }
-
-
-/* Apply the animation to the hero text */
-.hero-text {
-  opacity: 0; /* Start hidden */
-  animation: fadeInZoom 2s ease-out forwards;
-}
-.hero-text h1 {
-  opacity: 0;
-  animation: fadeInZoom 2s ease-out forwards;
-  animation-delay: 0.5s; /* Delay for the heading */
-}
-
-.hero-text p {
-  opacity: 0;
-  animation: fadeInZoom 2s ease-out forwards;
-  animation-delay: 1s; /* Delay for the paragraph */
-}
+  
 /* Animation keyframes for fade-in and scale */
 @keyframes fadeInZoom {
   0% {
@@ -133,38 +203,54 @@
   }
 }
 
-/* Initial hidden state */
-.hero-text, .hero-text h1, .hero-text p {
-  opacity: 0; /* Start hidden */
-  transform: scale(0.9); /* Start slightly smaller */
-}
-
-/* Classes to trigger animation */
-.fade-in {
+.hero-text {
+  opacity: 1; /* Set initial opacity to 1 to ensure it displays */
   animation: fadeInZoom 2s ease-out forwards;
 }
 
-.fade-in-delayed {
+.hero-text h1 {
   animation: fadeInZoom 2s ease-out forwards;
   animation-delay: 0.5s;
 }
 
-.fade-in-delayed-more {
+.hero-text p {
   animation: fadeInZoom 2s ease-out forwards;
   animation-delay: 1s;
 }
 
-/* Classes to trigger animation with infinite loop */
-.fade-in {
-  animation: fadeInZoom 4s ease-in-out infinite; /* Loops indefinitely */
+/* Keyframes for the fade-in and zoom animation */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.fade-in-delayed {
-  animation: fadeInZoom 4s ease-in-out infinite;
-  animation-delay: 0.5s;
+/* About Container Styling */
+.about-container {
+  max-width: 800px;
+  margin: 0 auto; /* Center align the container */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd;
 }
 
-.fade-in-delayed-more {
-  animation: fadeInZoom 4s ease-in-out infinite;
-  animation-delay: 1s;
+.about-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
 }
