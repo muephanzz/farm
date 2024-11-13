@@ -48,7 +48,7 @@ header {
   background-position: center;
   background-image: url('images/hen1.jpg'); /* Initial image */
   animation: backgroundSlideshow 20s infinite ease-in-out;
-  animation-delay: 2s; /* Delay to let text animation finish */
+  animation-delay: 3s; /* Delay to let text animation finish */
 }
 
 .hero-text {
@@ -69,8 +69,8 @@ header {
 /* Keyframes for Background Slideshow */
 @keyframes backgroundSlideshow {
   0% { background-image: url('images/hen1.jpg'); }
-  20% { background-image: url('images/cabbage1.jpg'); }
-  40% { background-image: url('images/cow1.jpg'); }
+  20% { background-image: url('images/sheep5.jpeg'); }
+  40% { background-image: url('images/cabbage8.jpeg'); }
   60% { background-image: url('images/kale1.jpeg'); }
   80% { background-image: url('images/sheep1.jpg'); }
   100% { background-image: url('images/hen6.jpg'); } /* Loop back to first image */
@@ -94,7 +94,7 @@ header {
   position: fixed;
   top: 60px;
   right: 0; /* Align to the right */
-  bottom: 0; /* Extend to the bottom of the screen */
+  bottom: 0.5; /* Extend to the center bottom of the screen */
   background-color: #333;
   display: none;
   padding: 1rem 0;
@@ -132,35 +132,51 @@ header {
   }
   
   nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     font-size: 18px;
   }
   
   #products {
-    padding: 40px 20px;
+    padding: 40px 10px;
     text-align: center;
   }
   
+/* Default styling */
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* space between items */
+}
+
+.product-item {
+  flex: 1 1 30%; /* three items per row by default */
+  box-sizing: border-box;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* maintains image aspect ratio */
+  border-radius: 5px; /* slight rounding for aesthetic */
+}
+
+/* Mobile View (small screens) */
+@media (max-width: 600px) {
   .product-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 0; /* removes the gap between items */
   }
-  
+
   .product-item {
-    width: 30%;
-    margin: 15px;
-    background: #f4f4f4;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
+    flex: 1 1 100%; /* each item takes full width */
+    margin: 0; /* no extra space on sides */
   }
-  
-  .product-item img {
+
+  .product-img {
     width: 100%;
-    border-radius: 8px;
+    height: auto; /* images cover the entire width */
   }
+}
   
   #about, #contact {
     padding: 40px 20px;
